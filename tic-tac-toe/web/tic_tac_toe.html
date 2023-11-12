@@ -1,0 +1,58 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="../css/tic_tac_toe.css" />
+  </head>
+  <body>
+    <!-- Titol -->
+    <div class="titol_joc">
+      <h1>TRES EN RATLLA</h1>
+    </div>
+    <!-- Fin titol -->
+
+    <!-- Contingut del joc -->
+    <div class="marc_primari">
+      <div class="casella" id="casella-1"><p></p></div>
+      <div class="casella" id="casella-2"><p></p></div>
+      <div class="casella" id="casella-3"><p></p></div>
+      <div class="casella" id="casella-4"><p></p></div>
+      <div class="casella" id="casella-5"><p></p></div>
+      <div class="casella" id="casella-6"><p></p></div>
+      <div class="casella" id="casella-7"><p></p></div>
+      <div class="casella" id="casella-8"><p></p></div>
+      <div class="casella" id="casella-9"><p></p></div>
+    </div>
+    <!-- Fin contingut del joc -->
+
+    <!-- Seleccionar Partides -->
+    <div class="partides">
+      <label for="nombrePartides"
+        >Selecciona el nombre de Partides a jugar:</label
+      >
+      <select id="nombrePartides">
+        <option class="opcions" value="3">3 partides</option>
+        <option class="opcions" value="5">5 partides</option>
+        <option class="opcions" value="7">7 partides</option>
+      </select>
+    </div>
+
+    <!-- Botons de jugar -->
+    <div class="botonera">
+      <button class="botons" onclick="iniciarJoc(1)">1 Jugador</button>
+      <button class="botons" onclick="iniciarJoc(2)">2 Jugadors</button>
+    </div>
+
+    <!-- footer -->
+    <footer class="peu">
+        <div>Joc Tic Tac Tou - Desenrrollament Web en Entorn Client</div>
+        <div>@2023 Pablo Cortés Bravo</div>
+    </footer>
+
+    <!-- Scripts-->
+    <script src="../js/base_script.js"></script>
+    <script src="../js/single_player.js"></script>
+    <script src="../js/multi_players.js"></script>
+  </body>
+</html>
