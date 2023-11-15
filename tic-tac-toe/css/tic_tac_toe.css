@@ -1,13 +1,14 @@
 body {
   background-image: url("../img/fons.jpeg");
-  background-size: auto;
+  background-size: cover;
   margin: 0;
   padding: 0;
   font-family: "Arial", sans-serif;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .titol_joc {
@@ -29,6 +30,50 @@ body {
   box-shadow: 20px 20px 20px black;
 }
 
+#marc_anuncis {
+  margin: auto;
+  margin-bottom: 2%;
+  width: 50%;
+  height: 100px;
+  background-color: beige;
+  border-radius: 25px;
+  box-shadow: 20px 20px 20px black;
+  justify-content: center;
+  text-align: center;
+  font-size: xx-large;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contingut {
+  display: grid;
+  grid-template-columns: 25% auto 25%;
+}
+
+#nom_jugadors {
+  background-color: antiquewhite;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  padding: 25px;
+}
+
+.inputNoms {
+  width: 250px;
+  margin: auto;
+  font-size: 25px;
+  border-radius: 5px;
+}
+
+#partidesJugades{
+ margin: auto;
+}
+
+
 .marc_primari {
   width: fit-content;
   display: grid;
@@ -41,18 +86,18 @@ body {
 .casella {
   background-color: beige;
   border: 2px solid black;
-  height: 150px;
-  width: 150px;
+  height: 125px;
+  width: 125px;
   padding: 5px;
   margin: 5px;
 }
 
 .casella p {
   align-items: center;
-  width: 150px;
-  height: 120px;
+  width: 125px;
+  height: 125px;
   text-align: center;
-  font-size: 100px;
+  font-size: 80px;
   vertical-align: middle;
   margin-top: 15px;
   margin-bottom: 15px;
