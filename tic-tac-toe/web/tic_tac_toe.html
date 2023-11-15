@@ -13,16 +13,34 @@
     <!-- Fin titol -->
 
     <!-- Contingut del joc -->
-    <div class="marc_primari">
-      <div class="casella" id="casella-1"><p></p></div>
-      <div class="casella" id="casella-2"><p></p></div>
-      <div class="casella" id="casella-3"><p></p></div>
-      <div class="casella" id="casella-4"><p></p></div>
-      <div class="casella" id="casella-5"><p></p></div>
-      <div class="casella" id="casella-6"><p></p></div>
-      <div class="casella" id="casella-7"><p></p></div>
-      <div class="casella" id="casella-8"><p></p></div>
-      <div class="casella" id="casella-9"><p></p></div>
+    <div id="marc_anuncis"></div>
+    <div class="contingut">
+      <div id="nom_jugadors">
+        <label class="labelJugadors" for="Jugador1">Jugador 1</label>
+        <input class="inputNoms" type="text" name="Jugador1" id="Jugador1" disabled />
+        <label class="labelJugadors" for="Jugador2">Jugador 2</label>
+        <input class="inputNoms" type="text" name="Jugador2" id="Jugador2" disabled />
+      </div>
+      <div class="marc_primari">
+        <div class="casella" id="casella-1"><p></p></div>
+        <div class="casella" id="casella-2"><p></p></div>
+        <div class="casella" id="casella-3"><p></p></div>
+        <div class="casella" id="casella-4"><p></p></div>
+        <div class="casella" id="casella-5"><p></p></div>
+        <div class="casella" id="casella-6"><p></p></div>
+        <div class="casella" id="casella-7"><p></p></div>
+        <div class="casella" id="casella-8"><p></p></div>
+        <div class="casella" id="casella-9"><p></p></div>
+      </div>
+      <div class="marc_partides">
+        <textarea
+          name="partidesJugades"
+          id="partidesJugades"
+          cols="30"
+          rows="35"
+          readonly
+        ></textarea>
+      </div>
     </div>
     <!-- Fin contingut del joc -->
 
@@ -46,8 +64,8 @@
 
     <!-- footer -->
     <footer class="peu">
-        <div>Joc Tic Tac Tou - Desenrrollament Web en Entorn Client</div>
-        <div>@2023 Pablo Cortés Bravo</div>
+      <div>Joc Tic Tac Tou - Desenrrollament Web en Entorn Client</div>
+      <div>@2023 Pablo Cortés Bravo</div>
     </footer>
 
     <!-- Scripts-->
