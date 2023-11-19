@@ -16,12 +16,14 @@ multi_players.iniciar = function () {
 
       guanyadorJoc = verificarGuanyador();
 
-      guanyadorJoc ? (guanyadorPartida = finalPartida()) : cambiarTorn();
+      guanyadorJoc ? (guanyadorPartida = finalPartida()) : canviarTorn();
 
       if (guanyadorPartida) {
         multi_players.desvincularEventListeners();
         reiniciarJoc();
-        return;
+        setTimeout(() => {
+          location.reload();
+        }, 8000);
       }
     });
   }
