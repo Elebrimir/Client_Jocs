@@ -1,24 +1,35 @@
 "use strict";
+let guanyadorJoc = false;
+let guanyadorPartida = false;
 
-const multi_players = {
-  iniciar: function () {
-    for (let i = 1; i <= 9; i++) {
-      const casiller = document.getElementById(`casella-${i}`);
+if (typeof multi_players === "undefined") {
+  var multi_players = {};
+}
 
-      casiller.addEventListener("click", function () {
-        anuncis.textContent = "";
+multi_players.iniciar = function () {
+  for (let i = 1; i <= 9; i++) {
+    const casiller = document.getElementById(`casella-${i}`);
+    casiller.addEventListener("click", function () {
+      anuncis.textContent = "";
 
-        ferMoviment(i);
+      ferMoviment(i);
 
-        let guanyador = verificarGuanyador();
+      guanyadorJoc = verificarGuanyador();
 
-        guanyador ? finalPartida() : cambiarTorn();
+      guanyadorJoc ? (guanyadorPartida = finalPartida()) : cambiarTorn();
 
-        if (guanyador) {
-          return;
-        }
-      });
-    }
-    return;
-  },
+      if (guanyadorPartida) {
+        multi_players.desvincularEventListeners();
+        reiniciarJoc();
+        return;
+      }
+    });
+  }
+};
+
+multi_players.desvincularEventListeners = function () {
+  for (let j = 1; j <= 9; j++) {
+    const casiller = document.getElementById(`casella-${j}`);
+    casiller.removeEventListener("click", multi_players.manejarClic);
+  }
 };

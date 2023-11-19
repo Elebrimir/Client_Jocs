@@ -1,11 +1,11 @@
 "use strict";
 
 // Definir les variables
-const Partida = [{ id: 0, CantitadJocs: 0, JocsRealitzats: 0 }];
+let Partida = [];
 
-const Jugador = [
-  { id: 1, nom: "", caselles: [], partides: 0 },
-  { id: 2, nom: "", caselles: [], partides: 0 },
+let Jugador = [
+  { id: 1, nom: "", caselles: [], jocs: 0, partides: 0 },
+  { id: 2, nom: "", caselles: [], jocs: 0, partides: 0 },
 ];
 
 const anuncis = document.getElementById("marc_anuncis");
@@ -14,7 +14,7 @@ const inputJugador1 = document.getElementById("Jugador1");
 const inputJugador2 = document.getElementById("Jugador2");
 
 let jugadorActual = Jugador[0].id; // 1 Per al jugador 1, 2 per al jugador 2
-let PartidaActual = Partida[0].id;
+let PartidaActual;
 let tablero = new Array(9).fill(null);
 
 let combinacionsGuanyadores = [
@@ -31,14 +31,23 @@ let combinacionsGuanyadores = [
 // Funció iniciar Partida
 
 function iniciarJoc(jugadors) {
+  tablero = new Array(9).fill(null);
+
   const partiSelect = document.getElementById("nombrePartides");
+
+  Partida.push({ id: Partida.length, CantitadJocs: 0, JocsRealitzats: 0 });
+  PartidaActual = Partida.length - 1;
+
   Partida[PartidaActual].CantitadJocs = parseInt(partiSelect.value);
+
+  console.log(PartidaActual);
+  console.log(Partida);
 
   // Configurar joc per a 1 o 2 jugadors
   if (jugadors === 1) {
     //single_player.iniciar();
   } else if (jugadors === 2) {
-    multi_players.iniciar();
+    anuncis.textContent = `Introduiu el nom dels Jugadors`;
 
     inputJugador1.removeAttribute("disabled");
     inputJugador2.removeAttribute("disabled");
@@ -46,11 +55,12 @@ function iniciarJoc(jugadors) {
     setTimeout(() => {
       inputJugador1.setAttribute("disabled", true);
       inputJugador2.setAttribute("disabled", true);
-    }, 10000);
 
-    Jugador[0].nom = inputJugador1.value;
-    Jugador[1].nom = inputJugador2.value;
-    console.log(Jugador[0].nom);
+      Jugador[0].nom = inputJugador1.value;
+      Jugador[1].nom = inputJugador2.value;
+
+      multi_players.iniciar();
+    }, 5000);
   }
 }
 
@@ -64,11 +74,13 @@ function finalPartida() {
     Partida[PartidaActual].JocsRealitzats < Partida[PartidaActual].CantitadJocs
   ) {
     reiniciarJoc();
+    return false;
   } else {
     Jugador[0].partides > Jugador[1].partides
       ? (anuncis.textContent = `${Jugador[0].nom} ha guanyat`)
       : (anuncis.textContent = `${Jugador[1].nom} ha guanyat`);
-    localStorage.setItem("jugadoresGuardados", JSON.stringify(Jugador));
+    localStorage.setItem("jugadorsGuardats", JSON.stringify(Jugador));
+    return true;
   }
 }
 
@@ -120,7 +132,7 @@ function verificarGuanyador() {
         anuncis.textContent = `Jugador: ${
           Jugador[jugadorActual - 1].nom
         } guanya`;
-      }, 4000);
+      }, 3000);
       anotarPartida();
       return true;
     }
@@ -142,4 +154,17 @@ function anotarPartida() {
 function cambiarTorn() {
   jugadorActual = jugadorActual === 1 ? 2 : 1;
   anuncis.textContent = `Torn Jugador ${Jugador[jugadorActual - 1].nom}`;
+}
+
+// Funció per a reiniciar les variables
+
+function iniciarVariables() {
+  Partida = [{ id: 0, CantitadJocs: 0, JocsRealitzats: 0 }];
+  Jugador = [
+    { id: 1, nom: "", caselles: [], partides: 0 },
+    { id: 2, nom: "", caselles: [], partides: 0 },
+  ];
+  jugadorActual = Jugador[0].id;
+  PartidaActual = Partida[0].id;
+  tablero = new Array(9).fill(null);
 }
