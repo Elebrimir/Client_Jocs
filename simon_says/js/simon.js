@@ -10,10 +10,11 @@ const morat = document.getElementById("morat");
 const blau = document.getElementById("blau");
 const blanc = document.getElementById("blanc");
 const mostrarNivell = document.getElementById("nivell");
+const podium = document.getElementById("llistaPodium");
 
 const colors = { roig, groc, verd, blau, taronja, morat, negre, blanc };
 
-const nomJugador = "";
+let nomJugador = "";
 
 let sequencia = [];
 let nivell = -1;
@@ -46,10 +47,10 @@ function iniciarJoc() {
   nivellActual = 0;
 
   botoInici.setAttribute("hidden", "true");
-  negre.setAttribute("hidden", "");
-  taronja.setAttribute("hidden", "");
-  morat.setAttribute("hidden", "");
-  blanc.setAttribute("hidden", "");
+  negre.setAttribute("hidden", "true");
+  taronja.setAttribute("hidden", "true");
+  morat.setAttribute("hidden", "true");
+  blanc.setAttribute("hidden", "true");
 
   mostrarNivell.textContent = nivell + 1;
 
@@ -61,6 +62,7 @@ function iluminarSequencia() {
 
   for (let i = 0; i <= nivell; i++) {
     desactivarEventos();
+    mostrarResultats();
     const color = transformarNrAColor(sequencia[i]);
     mostrarNivell.textContent = nivell + 1;
     console.log(color);
@@ -109,8 +111,9 @@ function triarColor(ev) {
     if (nivellActual > nivell) {
       nivell++;
       if (nivell === ultim) {
-        alert("Has guanyat");
-        prompt("Ingresa el teu nom:");
+        nomJugador = prompt("Ingresa el teu nom:");
+        setTimeout(() => alert("Has guanyat"), esperaMitja);
+        anotarPuntuacio(nivell, nomJugador);
         acabarJoc();
       } else {
         nivellActual = 0;
@@ -120,8 +123,9 @@ function triarColor(ev) {
   } else {
     colors[nomColor].classList.add("error");
     setTimeout(() => apagarColor(nomColor), eliminarColor);
+    nomJugador = prompt("Ingresa el teu nom:");
     setTimeout(() => alert("Has perdut"), esperaMitja);
-    prompt("Ingresa el teu nom:");
+    anotarPuntuacio(nivell, nomJugador);
     acabarJoc();
   }
 }
@@ -204,28 +208,77 @@ function generarTokenCutre() {
   return Math.random().toString(36).substring(2);
 }
 
-function obtindrePuntuació() {
-  let puntuacio;
-  let nivellFinal = nivell;
+function obtindrePuntuació(nivell) {
+  let puntuacio = 0;
 
-  if (nivellFinal >= 0 && nivellFinal <= 9) {
-    puntuacio += 5 * nivellFinal;
-  } else if (nivellFinal >= 10 && nivellFinal <= 14) {
-    puntuacio += 10 * nivellFinal;
-  } else if (nivellFinal >= 15 && nivellFinal <= 19) {
-    puntuacio += 15 * nivellFinal;
-  } else if (nivellFinal >= 20 && nivellFinal <= 24) {
-    puntuacio += 20 * nivellFinal;
+  if (nivell >= 0 && nivell <= 9) {
+    puntuacio += 5 * nivell;
+  } else if (nivell >= 10 && nivell <= 14) {
+    puntuacio += 10 * nivell;
+  } else if (nivell >= 15 && nivell <= 19) {
+    puntuacio += 15 * nivell;
+  } else if (nivell >= 20 && nivell <= 24) {
+    puntuacio += 20 * nivell;
   } else {
     puntuacio += 0;
   }
 
+  console.log(puntuacio);
   return puntuacio;
 }
 
-const infoPartida = {
-  id: generarTokenCutre(),
-  jugador: nomJugador,
-  puntuacio: obtindrePuntuació(),
-  maxNivell: nivell,
-};
+function anotarPuntuacio(nivell, nomJugador) {
+  const infoPartida = {
+    id: generarTokenCutre(),
+    jugador: nomJugador,
+    puntuacio: obtindrePuntuació(nivell),
+    maxNivell: nivell,
+  };
+
+  console.log(infoPartida);
+
+  fetch("https://pablo-data-games.glitch.me/games", {
+    method: "POST",
+    body: JSON.stringify(infoPartida),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      console.log(json);
+    })
+    .catch((error) => {
+      console.error("Error al guardar les dades", error);
+    });
+}
+
+function mostrarResultats() {
+  fetch("https://pablo-data-games.glitch.me/games", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+    },
+  })
+    .then((response) => response.json())
+    .then((historicJugadors) => {
+      console.log(historicJugadors);
+
+      historicJugadors.sort((a, b) => {
+        return b.puntuacio - a.puntuacio;
+      });
+
+      podium.innerHTML += `
+      <h1>Podium Puntuacions<h1>
+      <h1><li>${historicJugadors[0].jugador} -  ${historicJugadors[0].puntuacio} punts</li></h1>
+      <h2><li>${historicJugadors[1].jugador} -  ${historicJugadors[1].puntuacio} punts</li></h2>
+      <h3><li>${historicJugadors[2].jugador} -  ${historicJugadors[2].puntuacio} punts</li></h3>
+      <hr>
+      <h4><li>${historicJugadors[3].jugador} -  ${historicJugadors[3].puntuacio} punts</li></h4>
+      <h4><li>${historicJugadors[4].jugador} -  ${historicJugadors[4].puntuacio} punts</li></h4>
+      `;
+    })
+    .catch((error) => {
+      console.error("Error al obtindre les dades", error);
+    });
+}

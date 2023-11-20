@@ -127,3 +127,23 @@ button.principal {
 .error {
   filter: drop-shadow(15px 15px 15px red);
 }
+
+.puntuacions {
+  width: 50%;
+  display: grid;
+  margin: auto;
+  margin-top: 100px;
+  background-color: azure;
+  opacity: 0.75;
+  border-radius: 15px;
+  box-shadow: 10px 10px 5px black;
+}
+
+#podium {
+  margin: auto;
+  font-family: "Times New Roman", Times, serif;
+}
+
+#llistarPodium {
+  text-align: center;
+}
