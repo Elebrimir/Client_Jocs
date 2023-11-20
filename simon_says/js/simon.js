@@ -1,6 +1,6 @@
 "use strict";
 
-const botoInici = document.getElementById("iniciarJoc");
+const botoInici = document.getElementById("botoInici");
 const negre = document.getElementById("negre");
 const roig = document.getElementById("roig");
 const taronja = document.getElementById("taronja");
@@ -13,14 +13,7 @@ const mostrarNivell = document.getElementById("nivell");
 
 const colors = { roig, groc, verd, blau, taronja, morat, negre, blanc };
 
-/*colors.roig.addEventListener("click", triarColor);
-colors.groc.addEventListener("click", triarColor);
-colors.verd.addEventListener("click", triarColor);
-colors.blau.addEventListener("click", triarColor);
-colors.taronja.addEventListener("click", triarColor);
-colors.morat.addEventListener("click", triarColor);
-colors.negre.addEventListener("click", triarColor);
-colors.blanc.addEventListener("click", triarColor);*/
+const nomJugador = "";
 
 let sequencia = [];
 let nivell = -1;
@@ -52,7 +45,7 @@ function iniciarJoc() {
   nivell = 0;
   nivellActual = 0;
 
-  botoInici.setAttribute("hidden", "");
+  botoInici.setAttribute("hidden", "true");
   negre.setAttribute("hidden", "");
   taronja.setAttribute("hidden", "");
   morat.setAttribute("hidden", "");
@@ -64,15 +57,31 @@ function iniciarJoc() {
 }
 
 function iluminarSequencia() {
-  console.log("Iluminar Sequencia");
+  //console.log("Iluminar Sequencia");
 
   for (let i = 0; i <= nivell; i++) {
     desactivarEventos();
     const color = transformarNrAColor(sequencia[i]);
     mostrarNivell.textContent = nivell + 1;
-    setTimeout(() => iluminarColor(color), espera1 * i);
+    console.log(color);
+    if (nivell < 9) {
+      setTimeout(() => iluminarColor(color), espera1 * i);
+      setTimeout(() => activarEventos(), espera1 * nivell);
+    } else if (nivell >= 9 && nivell < 14) {
+      setTimeout(() => iluminarColor(color), espera10 * i);
+      setTimeout(() => activarEventos(), espera10 * nivell);
+    } else if (nivell >= 14 && nivell < 19) {
+      taronja.removeAttribute("hidden");
+      morat.removeAttribute("hidden");
+      setTimeout(() => iluminarColor(color), espera10 * i);
+      setTimeout(() => activarEventos(), espera10 * nivell);
+    } else if (nivell >= 19 && nivell < ultim) {
+      negre.removeAttribute("hidden");
+      blanc.removeAttribute("hidden");
+      setTimeout(() => iluminarColor(color), espera10 * i);
+      setTimeout(() => activarEventos(), espera10 * nivell);
+    }
   }
-  setTimeout(() => activarEventos(), espera1 * nivell);
 }
 
 function iluminarColor(color) {
@@ -91,7 +100,7 @@ function triarColor(ev) {
   if (nivell === -1) return;
 
   const nomColor = ev.target.dataset.color;
-  console.log(nomColor);
+  //console.log(nomColor);
   const nombreColor = transformarColorANr(nomColor);
   iluminarColor(nomColor);
 
@@ -101,7 +110,7 @@ function triarColor(ev) {
       nivell++;
       if (nivell === ultim) {
         alert("Has guanyat");
-
+        prompt("Ingresa el teu nom:");
         acabarJoc();
       } else {
         nivellActual = 0;
@@ -109,13 +118,16 @@ function triarColor(ev) {
       }
     }
   } else {
-    alert("Has perdut");
+    colors[nomColor].classList.add("error");
+    setTimeout(() => apagarColor(nomColor), eliminarColor);
+    setTimeout(() => alert("Has perdut"), esperaMitja);
+    prompt("Ingresa el teu nom:");
     acabarJoc();
   }
 }
 
 function acabarJoc() {
-  console.log("Acabar Joc");
+  //console.log("Acabar Joc");
   botoInici.removeAttribute("hidden");
   nivell = -1;
 }
@@ -165,7 +177,7 @@ function transformarColorANr(nombre) {
 }
 
 function activarEventos() {
-  console.log("Activar eventos");
+  //console.log("Activar eventos");
   colors.roig.addEventListener("click", triarColor);
   colors.groc.addEventListener("click", triarColor);
   colors.verd.addEventListener("click", triarColor);
@@ -177,7 +189,7 @@ function activarEventos() {
 }
 
 function desactivarEventos() {
-  console.log("Desactivar Eventos");
+  //console.log("Desactivar Eventos");
   colors.roig.removeEventListener("click", triarColor);
   colors.groc.removeEventListener("click", triarColor);
   colors.verd.removeEventListener("click", triarColor);
@@ -187,3 +199,33 @@ function desactivarEventos() {
   colors.negre.removeEventListener("click", triarColor);
   colors.blanc.removeEventListener("click", triarColor);
 }
+
+function generarTokenCutre() {
+  return Math.random().toString(36).substring(2);
+}
+
+function obtindrePuntuació() {
+  let puntuacio;
+  let nivellFinal = nivell;
+
+  if (nivellFinal >= 0 && nivellFinal <= 9) {
+    puntuacio += 5 * nivellFinal;
+  } else if (nivellFinal >= 10 && nivellFinal <= 14) {
+    puntuacio += 10 * nivellFinal;
+  } else if (nivellFinal >= 15 && nivellFinal <= 19) {
+    puntuacio += 15 * nivellFinal;
+  } else if (nivellFinal >= 20 && nivellFinal <= 24) {
+    puntuacio += 20 * nivellFinal;
+  } else {
+    puntuacio += 0;
+  }
+
+  return puntuacio;
+}
+
+const infoPartida = {
+  id: generarTokenCutre(),
+  jugador: nomJugador,
+  puntuacio: obtindrePuntuació(),
+  maxNivell: nivell,
+};

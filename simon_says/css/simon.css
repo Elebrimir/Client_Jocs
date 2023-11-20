@@ -88,12 +88,11 @@ button.principal {
   padding: 10px;
   background-color: darkgrey;
   border: 1px solid #ddd;
-  margin: auto;
   margin-top: 40px;
-  display: block;
-  width: 50%;
+  width: 100%;
   border-radius: 15px;
   cursor: pointer;
+  text-align: center;
 }
 
 #negre {
@@ -122,5 +121,9 @@ button.principal {
 }
 
 .light {
-  filter: brightness(1.5) drop-shadow(6px 6px 3px);
+  filter: brightness(1.5) drop-shadow(6px 6px 3px black);
+}
+
+.error {
+  filter: drop-shadow(15px 15px 15px red);
 }
