@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/simon.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="contenedor">
+      <div class="titol">SIMON SAYS</div>
+      <div class="explicacio">
+        El joc consisteix que, de forma aleatòria, es vagin il·luminant els
+        quadrants o zones de colors, i alhora que s'il·luminen, cada quadrant
+        emeti un so propi. Després d'esperar, l'usuari ha d'anar introduint la
+        seqüència mostrada abans, en l'ordre correcte, ajudant-se de la seva
+        memòria visual i sonora. Si ho aconsegueix, el joc respondrà amb una
+        seqüència més llarga i ràpida, i així successivament. Si falla, l'usuari
+        ha de tornar a començar. Els diferents nivells de dificultat van
+        augmentant la velocitat de la seqüència a repetir.
+      </div>
+      <hr />
+      <div class="nivell">
+        <span id="nivellText">Nivell</span>
+        <span id="nivell"></span>
+      </div>
+      <div class="botons">
+        <button id="roig" data-color="roig">&nbsp;</button>
+        <button id="groc" data-color="groc">&nbsp;</button>
+        <button id="verd" data-color="verd">&nbsp;</button>
+        <button id="blau" data-color="blau">&nbsp;</button>
+        <button id="taronja" data-color="taronja">&nbsp;</button>
+        <button id="morat" data-color="morat">&nbsp;</button>
+        <button id="negre" data-color="negre">&nbsp;</button>
+        <button id="blanc" data-color="blanc">&nbsp;</button>
+      </div>
+      <button id="botoInici" class="principal" onclick="iniciarJoc()">
+        Començar
+      </button>
+      <hr />
+      <div class="puntuacions">
+        <div id="podium">
+          <ol id="llistaPodium"></ol>
+        </div>
+        <div id="top">
+          <ol id="topDeu"></ol>
+        </div>
+      </div>
+    </div>
+    <script src="../js/simon.js"></script>
+  </body>
+</html>

@@ -1,0 +1,169 @@
+body {
+  position: relative;
+  background-color: skyblue;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../img/fons.jpeg);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.contenedor {
+  max-width: 60%;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+.titol {
+  background-color: azure;
+  text-align: center;
+  margin: 25px auto;
+  padding: 25px;
+  font-size: xx-large;
+  font-family: "Times New Roman", Times, serif;
+  opacity: 0.75;
+  color: black;
+  border-radius: 15px;
+  box-shadow: 10px 10px 5px black;
+}
+
+.explicacio {
+  background-color: azure;
+  text-align: center;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 150px;
+  padding: 25px;
+  font-size: large;
+  font-family: "Times New Roman", Times, serif;
+  opacity: 0.75;
+  color: black;
+  border-radius: 15px;
+  box-shadow: 10px 10px 5px black;
+}
+
+.nivell {
+  flex: 1;
+  margin: 15px;
+  padding: 15px;
+  border: 0;
+  outline: none;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.nivell span {
+  background-color: azure;
+  margin-left: 15px;
+  padding: 15px;
+  height: 15px;
+  border-radius: 5px;
+}
+
+.botons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.botons button {
+  flex: 1 0 35%;
+  padding: 20px;
+  border: 0;
+  outline: none;
+  box-sizing: border-box;
+  margin: 5px;
+  border-radius: 15px;
+}
+
+button.principal {
+  padding: 10px;
+  background-color: darkgrey;
+  border: 1px solid #ddd;
+  margin-top: 40px;
+  width: 100%;
+  border-radius: 15px;
+  cursor: pointer;
+  text-align: center;
+}
+
+#negre {
+  background-color: black;
+}
+#roig {
+  background-color: rgb(150, 0, 0);
+}
+#taronja {
+  background-color: rgb(150, 75, 0);
+}
+#groc {
+  background-color: rgb(150, 150, 0);
+}
+#verd {
+  background-color: green;
+}
+#morat {
+  background-color: purple;
+}
+#blau {
+  background-color: rgb(0, 0, 150);
+}
+#blanc {
+  background-color: rgb(150, 150, 150);
+}
+
+.light {
+  filter: brightness(1.5) drop-shadow(6px 6px 3px black);
+}
+
+.error {
+  filter: drop-shadow(15px 15px 15px red);
+}
+
+.puntuacions {
+  width: 50%;
+  display: grid;
+  margin: auto;
+  margin-top: 100px;
+  background-color: azure;
+  opacity: 0.85;
+  border-radius: 15px;
+  box-shadow: 10px 10px 5px black;
+}
+
+#podium {
+  margin: auto;
+  font-family: "Times New Roman", Times, serif;
+}
+
+#llistaPodium {
+  text-align: center;
+}
+
+#llistaPodium h1 {
+  color: black;
+}
+
+#llistaPodium h2 {
+  color: #efb810;
+}
+
+#llistaPodium h3 {
+  color: #c0c0c0;
+}
+
+#llistaPodium h4 {
+  color: #cd7f32;
+}
+
+#llistaPodium h5 {
+  color: #736c28;
+}

@@ -1,0 +1,167 @@
+body {
+  background-image: url("../img/fons.jpeg");
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.titol_joc {
+  background-color: beige;
+  width: fit-content;
+  font-size: 4vh;
+  font-style: italic;
+  height: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2vh;
+  margin-bottom: 5vh;
+  padding-right: 100px;
+  padding-left: 100px;
+  text-align: center;
+  text-shadow: 5px 5px 5px gray;
+  color: black;
+  border-radius: 25px;
+  box-shadow: 20px 20px 20px black;
+}
+
+#marc_anuncis {
+  margin: auto;
+  margin-bottom: 2%;
+  width: 50%;
+  height: 100px;
+  background-color: beige;
+  border-radius: 25px;
+  box-shadow: 20px 20px 20px black;
+  justify-content: center;
+  text-align: center;
+  font-size: xx-large;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contingut {
+  display: grid;
+  grid-template-columns: 25% auto 25%;
+}
+
+#nom_jugadors {
+  background-color: antiquewhite;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  padding: 25px;
+}
+
+.inputNoms {
+  width: 250px;
+  margin: auto;
+  font-size: 25px;
+  border-radius: 5px;
+}
+
+#partidesJugades{
+ margin: auto;
+}
+
+
+.marc_primari {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: black;
+  padding: 5vh;
+  margin: auto;
+}
+
+.casella {
+  background-color: beige;
+  border: 2px solid black;
+  height: 125px;
+  width: 125px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.casella p {
+  align-items: center;
+  width: 125px;
+  height: 125px;
+  text-align: center;
+  font-size: 80px;
+  vertical-align: middle;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 0;
+}
+
+.partides {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  text-align: center;
+  font-size: 2vh;
+  background-color: beige;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  border-radius: 15px;
+  box-shadow: 15px 15px 15px black;
+}
+
+.partides select {
+  width: 30%;
+  height: 4vh;
+  text-align: center;
+  font-size: 2vh;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.botonera {
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+  padding: 3%;
+}
+
+.botons {
+  color: black;
+  background-color: white;
+  border: none;
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px black;
+  font-size: large;
+}
+
+.botons:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.peu {
+  display: grid;
+  column-count: auto;
+  height: 15vh;
+  background-color: #333;
+  margin: 0;
+}
+
+.peu div {
+  margin: auto;
+  text-align: center;
+  font-size: larger;
+  color: white;
+}
