@@ -18,7 +18,7 @@ body::before {
 }
 
 .contenedor {
-  max-width: 75%;
+  max-width: 60%;
   margin: 0 auto;
   padding-top: 30px;
 }
@@ -75,7 +75,7 @@ body::before {
 }
 
 .botons button {
-  flex: 1 0 45%;
+  flex: 1 0 35%;
   padding: 20px;
   border: 0;
   outline: none;
@@ -134,7 +134,7 @@ button.principal {
   margin: auto;
   margin-top: 100px;
   background-color: azure;
-  opacity: 0.75;
+  opacity: 0.85;
   border-radius: 15px;
   box-shadow: 10px 10px 5px black;
 }
@@ -144,6 +144,26 @@ button.principal {
   font-family: "Times New Roman", Times, serif;
 }
 
-#llistarPodium {
+#llistaPodium {
   text-align: center;
+}
+
+#llistaPodium h1 {
+  color: black;
+}
+
+#llistaPodium h2 {
+  color: #efb810;
+}
+
+#llistaPodium h3 {
+  color: #c0c0c0;
+}
+
+#llistaPodium h4 {
+  color: #cd7f32;
+}
+
+#llistaPodium h5 {
+  color: #736c28;
 }

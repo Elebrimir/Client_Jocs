@@ -1,15 +1,18 @@
 "use strict";
 
 const botoInici = document.getElementById("botoInici");
-const negre = document.getElementById("negre");
 const roig = document.getElementById("roig");
-const taronja = document.getElementById("taronja");
 const groc = document.getElementById("groc");
 const verd = document.getElementById("verd");
-const morat = document.getElementById("morat");
 const blau = document.getElementById("blau");
+const taronja = document.getElementById("taronja");
+const morat = document.getElementById("morat");
 const blanc = document.getElementById("blanc");
+const negre = document.getElementById("negre");
+
 const mostrarNivell = document.getElementById("nivell");
+const mostrarTextNivell = document.getElementsByClassName("nivell")[0];
+
 const podium = document.getElementById("llistaPodium");
 
 const colors = { roig, groc, verd, blau, taronja, morat, negre, blanc };
@@ -29,10 +32,31 @@ const colors1 = 4;
 const colors15 = 6;
 const colors20 = 8;
 
+roig.setAttribute("hidden", "true");
+groc.setAttribute("hidden", "true");
+verd.setAttribute("hidden", "true");
+blau.setAttribute("hidden", "true");
+taronja.setAttribute("hidden", "true");
+morat.setAttribute("hidden", "true");
+blanc.setAttribute("hidden", "true");
+negre.setAttribute("hidden", "true");
+
+mostrarTextNivell.setAttribute("hidden", "true");
+
+mostrarResultats();
+
 function iniciarJoc() {
   console.log("iniciar Joc");
+
+  mostrarTextNivell.removeAttribute("hidden");
+  roig.removeAttribute("hidden");
+  groc.removeAttribute("hidden");
+  verd.removeAttribute("hidden");
+  blau.removeAttribute("hidden");
+
   sequencia = new Array(ultim);
   sequencia = sequencia.fill(0);
+
   for (let i = 0; i < 15; i++) {
     sequencia[i] = Math.floor(Math.random() * colors1) + 1;
   }
@@ -47,10 +71,6 @@ function iniciarJoc() {
   nivellActual = 0;
 
   botoInici.setAttribute("hidden", "true");
-  negre.setAttribute("hidden", "true");
-  taronja.setAttribute("hidden", "true");
-  morat.setAttribute("hidden", "true");
-  blanc.setAttribute("hidden", "true");
 
   mostrarNivell.textContent = nivell + 1;
 
@@ -62,7 +82,7 @@ function iluminarSequencia() {
 
   for (let i = 0; i <= nivell; i++) {
     desactivarEventos();
-    mostrarResultats();
+
     const color = transformarNrAColor(sequencia[i]);
     mostrarNivell.textContent = nivell + 1;
     console.log(color);
@@ -270,12 +290,17 @@ function mostrarResultats() {
 
       podium.innerHTML += `
       <h1>Podium Puntuacions<h1>
-      <h1><li>${historicJugadors[0].jugador} -  ${historicJugadors[0].puntuacio} punts</li></h1>
-      <h2><li>${historicJugadors[1].jugador} -  ${historicJugadors[1].puntuacio} punts</li></h2>
-      <h3><li>${historicJugadors[2].jugador} -  ${historicJugadors[2].puntuacio} punts</li></h3>
+      <h2><li>${historicJugadors[0].jugador} -  ${historicJugadors[0].puntuacio} punts</li></h2>
+      <h3><li>${historicJugadors[1].jugador} -  ${historicJugadors[1].puntuacio} punts</li></h3>
+      <h4><li>${historicJugadors[2].jugador} -  ${historicJugadors[2].puntuacio} punts</li></h4>
       <hr>
-      <h4><li>${historicJugadors[3].jugador} -  ${historicJugadors[3].puntuacio} punts</li></h4>
-      <h4><li>${historicJugadors[4].jugador} -  ${historicJugadors[4].puntuacio} punts</li></h4>
+      <h5><li>${historicJugadors[3].jugador} -  ${historicJugadors[3].puntuacio} punts</li></h5>
+      <h5><li>${historicJugadors[4].jugador} -  ${historicJugadors[4].puntuacio} punts</li></h5>
+      <h5><li>${historicJugadors[4].jugador} -  ${historicJugadors[4].puntuacio} punts</li></h5>
+      <h5><li>${historicJugadors[4].jugador} -  ${historicJugadors[4].puntuacio} punts</li></h5>
+      <h5><li>${historicJugadors[4].jugador} -  ${historicJugadors[4].puntuacio} punts</li></h5>
+      <h5><li>${historicJugadors[4].jugador} -  ${historicJugadors[4].puntuacio} punts</li></h5>
+      <h5><li>${historicJugadors[4].jugador} -  ${historicJugadors[4].puntuacio} punts</li></h5>
       `;
     })
     .catch((error) => {
