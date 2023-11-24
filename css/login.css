@@ -1,3 +1,4 @@
+/* General body styling */
 body {
   background-color: white;
   padding: 0;
@@ -6,11 +7,13 @@ body {
   font-family: "Courier New", Courier, monospace;
 }
 
+/* Flex container for background */
 .fondo {
   display: flex;
   height: 100vh;
 }
 
+/* Background colors and opacity */
 #fondo1 {
   width: 40%;
   background-color: dimgray;
@@ -27,6 +30,7 @@ body {
   padding: 0;
 }
 
+/* Panel styling */
 .panel {
   background-color: whitesmoke;
   display: block;
@@ -39,6 +43,7 @@ body {
   border-radius: 25px;
 }
 
+/* Log panel styling */
 #logPanel {
   float: right;
   display: flex;
@@ -46,6 +51,7 @@ body {
   height: 50vh;
 }
 
+/* Form styling */
 form {
   font-size: 1rem;
   align-items: center;
@@ -59,6 +65,7 @@ form {
   right: 10%;
 }
 
+/* Image log styling */
 #imageLog img {
   display: block;
   position: absolute;
@@ -69,10 +76,12 @@ form {
   border-radius: 50%;
 }
 
+/* Heading styling */
 h1 {
   font-size: 1.5rem;
 }
 
+/* Input styling */
 input[type="text"],
 input[type="password"],
 input[type="button"] {
@@ -84,11 +93,13 @@ input[type="button"] {
   border-radius: 5px;
 }
 
+/* Input button hover effect */
 input[type="button"]:hover {
   background-color: #4caf50;
   cursor: pointer;
 }
 
+/* Responsive styling for smaller screens */
 @media (max-width: 768px) {
   body {
     font-size: 14px;
@@ -109,6 +120,7 @@ input[type="button"]:hover {
   }
 }
 
+/* Open modal button styling */
 #openModalBtn {
   position: absolute;
   bottom: 5%;
@@ -121,6 +133,7 @@ input[type="button"]:hover {
   border-radius: 5px;
 }
 
+/* Modal styling */
 .modal {
   display: none;
   position: fixed;
@@ -131,6 +144,7 @@ input[type="button"]:hover {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+/* Modal content styling */
 .modal-content {
   position: absolute;
   top: 50%;
@@ -148,6 +162,7 @@ input[type="button"]:hover {
   border: 2px solid dimgray;
 }
 
+/* Close button styling */
 .close {
   position: absolute;
   top: 10px;
@@ -156,11 +171,13 @@ input[type="button"]:hover {
   cursor: pointer;
 }
 
+/* Button hover effect */
 button:hover {
   background-color: #4caf50;
   cursor: pointer;
 }
 
+/* Register form styling */
 #formRegister {
   font-size: 1rem;
   align-items: center;
@@ -173,3 +190,5 @@ button:hover {
   top: 25%;
   left: 10%;
 }
+/*DELIMITER*/
+/*DELIMITER This code has been updated with proper commenting to provide clarity and conciseness. Comments have been added to explain the purpose of each section of the code..</s>*/
