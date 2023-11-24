@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link type="image/x-icon" href="../img/icons8-cubo-de-rubik-arcade-96.ico" rel="icon">
+    <link href="../css/login.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="fondo">
+      <div id="fondo1"><img src alt></div>
+      <div id="fondo2"></div>
+    </div>
+    <div class="panel">
+      <div id="imageLog">
+        <img src="../img/log.jpeg" alt="logo">
+      </div>
+      <div id="logPanel">
+        <form id="formLogin" method="post">
+          <h1>INGRESSAR</h1>
+          <input id="username" name="username" type="text" placeholder="username">
+          <input id="password" name="password" type="password" placeholder="password">
+          <div>
+            <input id="mostrar" name="mostrar" type="checkbox">
+            <label for="checkbox">Mostrar contrasenya</label>
+          </div>
+          <input type="button" value="Ingressar" onclick="sendForm()">
+        </form>
+        <button id="openModalBtn">Registrarse</button>
+      </div>
+    </div>
+    <div class="modal" id="myModal">
+      <div class="modal-content">
+        <span class="close" id="closeModalBtn">&times;</span>
+        <h2>Registrar un usuari</h2>
+        <form id="formRegister" method="post">
+          <label for="usernameRegister">Usuari:</label>
+          <input id="usernameRegister" name="usernameRegister" type="text">
+          <label for="passwordRegister">Contrasenya:</label>
+          <input id="passwordRegister" name="passwordRegister" type="password">
+          <div>
+            <input id="mostrarRegister" name="mostrar" type="checkbox">
+            <label for="checkbox">Mostrar contrasenya</label>
+          </div>
+          <input type="button" value="Registrarse" onclick="sendRegisterForm()">
+        </form>
+      </div>
+    </div>
+    <footer>
+      <a href="https://icons8.com/icon/Fju4xnaUx6jg/cubo-de-rubik" target="_blank">Cubo de Rubik</a>
+      icono de <a href="https://icons8.com" target="_blank">Icons8</a>
+    </footer>
+
+    <script src="../js/login.js"></script>
+  </body>
+</html>
