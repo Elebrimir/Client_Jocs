@@ -1,0 +1,194 @@
+/* General body styling */
+body {
+  background-color: white;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* Flex container for background */
+.fondo {
+  display: flex;
+  height: 100vh;
+}
+
+/* Background colors and opacity */
+#fondo1 {
+  width: 40%;
+  background-color: dimgray;
+  opacity: 1;
+  margin: 0;
+  padding: 0;
+}
+
+#fondo2 {
+  width: 60%;
+  background-color: lightgray;
+  opacity: 1;
+  margin: 0;
+  padding: 0;
+}
+
+/* Panel styling */
+.panel {
+  background-color: whitesmoke;
+  display: block;
+  position: absolute;
+  left: 25%;
+  top: 25%;
+  border: 2px solid white;
+  width: 40%;
+  height: 50%;
+  border-radius: 25px;
+}
+
+/* Log panel styling */
+#logPanel {
+  float: right;
+  display: flex;
+  width: 62.5%;
+  height: 50vh;
+}
+
+/* Form styling */
+form {
+  font-size: 1rem;
+  align-items: center;
+  width: auto;
+  height: 50vh;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 15%;
+  right: 10%;
+}
+
+/* Image log styling */
+#imageLog img {
+  display: block;
+  position: absolute;
+  left: 5%;
+  bottom: 25%;
+  width: 35%;
+  opacity: 0.8;
+  border-radius: 50%;
+}
+
+/* Heading styling */
+h1 {
+  font-size: 1.5rem;
+}
+
+/* Input styling */
+input[type="text"],
+input[type="password"],
+input[type="button"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 5px;
+}
+
+/* Input button hover effect */
+input[type="button"]:hover {
+  background-color: #4caf50;
+  cursor: pointer;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  form {
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="button"] {
+    font-size: 0.9rem;
+  }
+}
+
+/* Open modal button styling */
+#openModalBtn {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  width: 25%;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 5px;
+}
+
+/* Modal styling */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Modal content styling */
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  align-items: center;
+  height: 50vh;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid dimgray;
+}
+
+/* Close button styling */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Button hover effect */
+button:hover {
+  background-color: #4caf50;
+  cursor: pointer;
+}
+
+/* Register form styling */
+#formRegister {
+  font-size: 1rem;
+  align-items: center;
+  width: auto;
+  height: 50vh;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 25%;
+  left: 10%;
+}
+/*DELIMITER*/
+/*DELIMITER This code has been updated with proper commenting to provide clarity and conciseness. Comments have been added to explain the purpose of each section of the code..</s>*/
