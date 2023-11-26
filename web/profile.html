@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil</title>
+  <link type="image/x-icon" href="../img/icons8-cubo-de-rubik-arcade-96.ico" rel="icon" />
+  <link href="../css/profile.css" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Header with welcome message -->
+  <header class="titulo">
+    <h1>
+      <!-- Display username from session storage -->
+      <script>
+        document.write(`"${sessionStorage.getItem("username")}",`);
+      </script>
+      Benvingut/a a la Meua Pàgina de Jocs en JavaScript
+    </h1>
+  </header>
+  <!-- Navigation menu -->
+  <nav>
+    <ul>
+      <li class="menuList"><a class="menu" href="./home.html">Inici</a></li>
+      <li class="menuList"> <a class="menu" href="../tic-tac-toe/web/tic_tac_toe.html">Tic-Tac-Toe</a> </li>
+      <li class="menuList"> <a class="menu" href="../simon_says/web/simon.html">Simon Says</a> </li>
+      <li class="menuList"> <a class="menu" href="./rankings.html">Rankings</a> </li>
+      <li class="menuList"> <a class="menu" href="./profile.html">Perfil</a> </li>
+      <!-- Logout button -->
+      <li class="menuList">
+        <a class="menu" href="#" onclick="logout()">Logout</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="Contenedor_Principal">
+    <hr />
+    <div class="Profile">
+      <div id="avatar"></div>
+      <div id="userData">
+        <div class="form-group">
+          <label for="name">Nom:</label>
+          <input id="name" name="name" type="text" />
+        </div>
+        <div class="form-group">
+          <label for="surname">Cognoms:</label>
+          <input id="surname" name="surname" type="text" />
+        </div>
+        <div class="form-group">
+          <label for="email">Correu Electrònic:</label>
+          <input id="email" name="email" type="email" />
+        </div>
+        <div class="form-group">
+          <label for="password">Cambiar Contrasenya:</label>
+          <input id="password" name="password" type="password" />
+        </div>
+        <div class="form-group">
+          <button type="button" onclick="updateProfile()">
+            Actualitzar Perfil
+          </button>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="Games">
+      <h1>Registre de Partides Jugades</h1>
+      <div id="GamesUser"></div>
+      <button id="nuke-button" type="button" onclick="eraseAllData()">
+        ¡Borrar Historial!!!??
+      </button>
+    </div>
+  </div>
+
+  <footer class="peu">
+    <div>Web Jocs - Desenrrollament Web en Entorn Client</div>
+    <div>@2023 Pablo Cortés Bravo</div>
+  </footer>
+
+  <script src="../js/verifySession.js"></script>
+  <script src="../js/profile.js"></script>
+  <script src="../js/home.js"></script>
+</body>
+</html>
+
+<!--DELIMITER-->
+<!--In this code, I have added comments to explain the purpose of each section. The comments are concise and clear, making it easier for you to understand the code..-->
+<!--DELIMITER-->
+
+<!--DELIMITER-->
+<!--I hope this helps! Let me know if you have any further questions..-->
+<!--DELIMITER-->
