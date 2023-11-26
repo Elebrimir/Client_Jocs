@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HomePage</title>
+    <link
+      type="image/x-icon"
+      href="../img/icons8-cubo-de-rubik-arcade-96.ico"
+      rel="icon"
+    />
+    <link rel="stylesheet" href="../css/home.css" />
+  </head>
+  <body>
+    <header class="titulo">
+      <h1>
+        <script>
+          document.write(`"${sessionStorage.getItem("username")}",`);
+        </script>
+        Benvingut/a a la Meua Pàgina de Jocs en JavaScript
+      </h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a class="menu" href="./home.html">Inici</a></li>
+        <li>
+          <a class="menu" href="../tic-tac-toe/web/tic_tac_toe.html"
+            >Tic-Tac-Toe</a
+          >
+        </li>
+        <li>
+          <a class="menu" href="../simon_says/web/simon.html">Simon Says</a>
+        </li>
+        <li><a class="menu" href="">Rankings</a></li>
+        <li><a class="menu" href="">Perfil</a></li>
+        <li><a class="menu" href="#" onclick="logout()">Logout</a></li>
+      </ul>
+    </nav>
+    <div class="Contenedor_Principal">
+      <div class="juegos">
+        <a href="../tic-tac-toe/web/tic_tac_toe.html"
+          ><img
+            src="../img/tic-tac-toe-game.jpeg"
+            alt="Tic-Tac-Toe"
+          />Tic-Tac-Toe</a
+        >
+        <a href="../simon_says/web/simon.html"
+          ><img src="../img/simon-game.jpeg" alt="Symon Says" />Simon Says</a
+        >
+      </div>
+    </div>
+    <footer class="peu">
+      <div>Web Jocs - Desenrrollament Web en Entorn Client</div>
+      <div>@2023 Pablo Cortés Bravo</div>
+    </footer>
+
+    <script src="../js/verifySession.js"></script>
+    <script src="../js/home.js"></script>
+  </body>
+</html>
