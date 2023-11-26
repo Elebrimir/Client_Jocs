@@ -71,80 +71,31 @@ a {
   padding-bottom: 5%;
 }
 
-.Profile {
+.rank {
   margin: auto;
   text-align: center;
   padding: 20px;
-  display: flex;
-  align-items: center;
 }
 
-#avatar {
-  background-color: grey;
-  border: 5px solid #333;
-  width: 250px;
-  height: auto;
-  border-radius: 10px;
-  margin: auto;
-  box-shadow: 10px 10px 8px black;
-}
-
-#avatar img {
-  margin: 15px;
-}
-
-#userData {
+#Games {
   display: flex;
   flex-direction: column;
-  margin: 15px auto;
-  margin-left: 0;
 }
 
-.form-group {
+#rank-players {
+  margin-bottom: 150px;
   display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  width: 100%;
-  font-size: 20px;
+  flex-direction: column;
 }
 
-.form-group label {
-  margin-right: 15px;
-  width: 400px;
-  text-align: left;
+#rank-players img {
+  width: 200px;
+  height: auto;
+  align-self: center;
+  margin-top: 50px;
 }
 
-.form-group input {
-  width: 100%;
-  font-size: 20px;
-  font-family: "Marhey", sans-serif;
-  border: 2px solid #333;
-  border-radius: 5px;
-}
-
-.form-group button {
-  font-family: inherit;
-  font-size: 25px;
-  margin-top: 25px;
-  margin-left: 65%;
-  width: 35%;
-  border: 2px solid #333;
-  border-radius: 5px;
-  text-align: center;
-}
-
-.form-group button:hover {
-  scale: 1.1;
-  cursor: pointer;
-}
-
-.Games {
-  margin: auto;
-  text-align: center;
-  padding: 20px;
-}
-
-#GamesUser {
+#rank-games {
   display: flex;
   flex-direction: column;
 }
@@ -170,48 +121,6 @@ a {
   align-items: center;
   border: 2px solid #333;
   box-shadow: 5px 5px 5px #333;
-}
-
-#GamesUser button {
-  font-family: inherit;
-  font-size: 25px;
-  background-color: red;
-  color: whitesmoke;
-  margin: auto;
-  margin-left: 10px;
-  margin-top: 10px;
-  padding: 10px;
-  height: auto;
-  border-radius: 5px;
-  margin-bottom: 0;
-  border: 2px solid #333;
-  box-shadow: 5px 5px 5px #333;
-}
-
-#GamesUser button:hover {
-  scale: 1.1;
-  cursor: pointer;
-}
-
-#nuke-button {
-  font-family: inherit;
-  font-size: 25px;
-  background-color: red;
-  color: whitesmoke;
-  margin: auto;
-  margin-left: 10px;
-  margin-top: 10px;
-  padding: 10px;
-  height: auto;
-  border-radius: 5px;
-  margin-bottom: 0;
-  border: 2px solid #333;
-  box-shadow: 5px 5px 5px #333;
-}
-
-#nuke-button:hover {
-  scale: 1.1;
-  cursor: pointer;
 }
 
 .peu {

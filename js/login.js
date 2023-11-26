@@ -78,6 +78,10 @@ function sendForm() {
       } else {
         return console.log("Username or Password Incorrect");
       }
+    })
+    .catch((error) => {
+      console.error("Username or Password Incorrecte", error);
+      alert("Usuari o contrasenya Incorrecta");
     });
 }
 

@@ -68,7 +68,7 @@ fetch("https://pablo-data-games.glitch.me/games", {
       }">Partida ${[i + 1]} - <em>id: ${userGames[i].id}</em>&nbsp - ${
         userGames[i].puntuacio
       } Punts - Joc: ${
-        userGames.joc
+        userGames[i].joc
       }</li><button type="button" onclick="eraseGame(this)">Borrar</button></div>`;
     }
   })
