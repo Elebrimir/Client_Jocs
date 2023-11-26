@@ -1,7 +1,7 @@
 "use strict";
 
 // Definir les variables
-let Partida = [];
+let Partida = { id: generarTokenCutre(), cantitadJocs: 0, jocsRealitzats: 0 };
 
 let Jugador = [
   { id: 1, nom: "", caselles: [], jocs: 0, partides: 0 },
@@ -12,11 +12,12 @@ const anuncis = document.getElementById("marc_anuncis");
 const resultats = document.getElementById("partidesJugades");
 const inputJugador1 = document.getElementById("Jugador1");
 const inputJugador2 = document.getElementById("Jugador2");
+let info1Partida;
+let info2Partida;
 
 let jugadorActual = Jugador[0].id; // 1 Per al jugador 1, 2 per al jugador 2
 let PartidaActual;
 let tablero = new Array(9).fill(null);
-
 let combinacionsGuanyadores = [
   [1, 2, 3],
   [4, 5, 6],
@@ -28,6 +29,8 @@ let combinacionsGuanyadores = [
   [3, 5, 7],
 ];
 
+Jugador[0].nom = sessionStorage.getItem("username");
+inputJugador1.value = Jugador[0].nom;
 // Funció iniciar Partida
 
 function iniciarJoc(jugadors) {
@@ -36,52 +39,30 @@ function iniciarJoc(jugadors) {
 
   const partiSelect = document.getElementById("nombrePartides");
 
-  let jugadorsGuardatsJSON = localStorage.getItem("jugadorsGuardats");
-  let partidesGuardadesJSON = localStorage.getItem("partidesGuardades");
-
-  if (!partidesGuardadesJSON == null) {
-    Partida = JSON.parse(partidesGuardadesJSON);
-    console.log("Carrega Partides");
-  }
-
-  if (!jugadorsGuardatsJSON == null) {
-    Jugador = JSON.parse(jugadorsGuardatsJSON);
-    console.log("Carrega Jugadors");
-  }
-
-  Partida.push({ id: Partida.length, CantitadJocs: 0, JocsRealitzats: 0 });
-  PartidaActual = Partida.length - 1;
-
-  Partida[PartidaActual].CantitadJocs = parseInt(partiSelect.value);
+  PartidaActual = Partida.id;
+  Partida.cantitadJocs = parseInt(partiSelect.value);
 
   console.log(PartidaActual);
   console.log(Partida);
 
   // Configurar joc per a 1 o 2 jugadors
   if (jugadors === 1) {
-    anuncis.textContent = `Introduïu el nom del Jugador`;
-
-    inputJugador1.removeAttribute("disabled");
+    anuncis.textContent = `${Jugador[0].nom}, preparat per a jugar?`;
 
     setTimeout(() => {
-      inputJugador1.setAttribute("disabled", true);
-
-      Jugador[0].nom = inputJugador1.value;
       Jugador[1].nom = "Ordinador";
+      inputJugador2.value = Jugador[1].nom;
 
       single_player.iniciar();
-    }, 5000);
+    }, 2000);
   } else if (jugadors === 2) {
-    anuncis.textContent = `Introduïu els noms dels Jugadors`;
+    anuncis.textContent = `${Jugador[0].nom}, Introduïu el nom del vostre rival`;
 
-    inputJugador1.removeAttribute("disabled");
     inputJugador2.removeAttribute("disabled");
 
     setTimeout(() => {
-      inputJugador1.setAttribute("disabled", true);
       inputJugador2.setAttribute("disabled", true);
 
-      Jugador[0].nom = inputJugador1.value;
       Jugador[1].nom = inputJugador2.value;
 
       multi_players.iniciar();
@@ -92,13 +73,11 @@ function iniciarJoc(jugadors) {
 //Funció per a acabar la partida
 function finalPartida() {
   console.log("Final Partida");
-  Partida[PartidaActual].JocsRealitzats += 1;
+  Partida.jocsRealitzats += 1;
 
   anuncis.textContent = `Puntuació: ${Jugador[0].jocs} vs ${Jugador[1].jocs}`;
 
-  if (
-    Partida[PartidaActual].JocsRealitzats < Partida[PartidaActual].CantitadJocs
-  ) {
+  if (Partida.jocsRealitzats < Partida.cantitadJocs) {
     setTimeout(() => {
       reiniciarJoc();
     }, 4000);
@@ -108,8 +87,77 @@ function finalPartida() {
     Jugador[0].jocs > Jugador[1].jocs
       ? (anuncis.textContent = `${Jugador[0].nom} ha guanyat`)
       : (anuncis.textContent = `${Jugador[1].nom} ha guanyat`);
-    localStorage.setItem("jugadorsGuardats", JSON.stringify(Jugador));
-    localStorage.setItem("partidesGuardades", JSON.stringify(Partida));
+
+    // Falta fer el fetch al Json-server y enviar el resultat de la partida
+    if (Jugador[0].jocs > Jugador[1].jocs) {
+      info1Partida = {
+        id: Partida.id,
+        jugador: Jugador[0].nom,
+        puntuacio: Jugador[0].jocs,
+        joc: "Tic-Tac-Toe",
+        resultat: "Victoria",
+        rival: Jugador[1].nom,
+      };
+      info2Partida = {
+        id: Partida.id,
+        jugador: Jugador[1].nom,
+        puntuacio: Jugador[1].jocs,
+        joc: "Tic-Tac-Toe",
+        resultat: "Derrota",
+        rival: Jugador[0].nom,
+      };
+    } else {
+    }
+    info1Partida = {
+      id: Partida.id,
+      jugador: Jugador[1].nom,
+      puntuacio: Jugador[1].jocs,
+      joc: "Tic-Tac-Toe",
+      resultat: "Victoria",
+      rival: Jugador[0].nom,
+    };
+    info2Partida = {
+      id: generarTokenCutre(),
+      jugador: Jugador[0].nom,
+      puntuacio: Jugador[0].jocs,
+      joc: "Tic-Tac-Toe",
+      resultat: "Derrota",
+      rival: Jugador[1].nom,
+    };
+
+    console.log(info1Partida);
+    console.log(info2Partida);
+
+    fetch("https://pablo-data-games.glitch.me/games", {
+      method: "POST",
+      body: JSON.stringify(info1Partida),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        console.log("Dades 1 guardades amb exit", json);
+      })
+      .catch((error) => {
+        console.error("Error al guardar les dades", error);
+      });
+
+    fetch("https://pablo-data-games.glitch.me/games", {
+      method: "POST",
+      body: JSON.stringify(info2Partida),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        console.log("Dades 2 guardades amb exit", json);
+      })
+      .catch((error) => {
+        console.error("Error al guardar les dades", error);
+      });
+
     return true;
   }
 }
@@ -118,14 +166,16 @@ function finalPartida() {
 function reiniciarJoc() {
   console.log("Reiniciar Joc");
   tablero = new Array(9).fill(null);
+
   Jugador[0].caselles = new Array();
   Jugador[1].caselles = new Array();
+
   for (let i = 1; i <= 9; i++) {
     const casiller = document.getElementById(`casella-${i}`);
     const contingut = casiller.querySelector("p");
     contingut.textContent = "";
   }
-  anuncis.textContent = `Partida ${Partida[PartidaActual].JocsRealitzats} de ${Partida[PartidaActual].CantitadJocs}`;
+  anuncis.textContent = `Partida ${Partida.jocsRealitzats} de ${Partida.cantitadJocs}`;
 }
 
 //Funció fer moviment
@@ -221,4 +271,8 @@ function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function generarTokenCutre() {
+  return Math.random().toString(36).substring(2);
 }
