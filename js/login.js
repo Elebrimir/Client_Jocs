@@ -72,6 +72,7 @@ function sendForm() {
 
       if (userOk[0].username === username && userOk[0].password === password) {
         sessionStorage.setItem("username", userOk[0].username);
+        sessionStorage.setItem("id", userOk[0].id);
         console.log("Logged Ok");
         return (window.location.href = "../web/home.html");
       } else {
