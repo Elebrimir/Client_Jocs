@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rankings</title>
+  <link type="image/x-icon" href="../img/icons8-cubo-de-rubik-arcade-96.ico" rel="icon">
+  <link href="../css/rankings.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Header with welcome message -->
+  <header class="titulo">
+    <h1>
+      <!-- Display username from session storage -->
+      <script>
+        document.write(`"${sessionStorage.getItem("username")}",`);
+      </script>
+      Benvingut/a a la Meua Pàgina de Jocs en JavaScript
+    </h1>
+  </header>
+  <!-- Navigation menu -->
+  <nav>
+    <ul>
+      <li class="menuList"><a class="menu" href="./home.html">Inici</a></li>
+      <li class="menuList"> <a class="menu" href="../tic-tac-toe/web/tic_tac_toe.html">Tic-Tac-Toe</a> </li>
+      <li class="menuList"> <a class="menu" href="../simon_says/web/simon.html">Simon Says</a> </li>
+      <li class="menuList"> <a class="menu" href="./rankings.html">Rankings</a> </li>
+      <li class="menuList"> <a class="menu" href="./profile.html">Perfil</a> </li>
+      <!-- Logout button -->
+      <li class="menuList">
+        <a class="menu" href="#" onclick="logout()">Logout</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="Contenedor_Principal">
+    <hr>
+    <div class="rank">
+      <h1>Registre de les Partides Jugades</h1>
+      <div id="Games">
+        <div id="rank-players"></div>
+        <div id="rank-games"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="peu">
+    <div>Web Jocs - Desenrrollament Web en Entorn Client</div>
+    <div>@2023 Pablo Cortés Bravo</div>
+  </footer>
+
+  <script src="../js/verifySession.js"></script>
+  <script src="../js/rankings.js"></script>
+  <script src="../js/home.js"></script>
+</body>
+</html>
+
+<!--DELIMITER-->
+<!--In this code, I have added comments to explain the purpose of each section. The comments are concise and clear, making it easier for you to understand the code..-->
+<!--DELIMITER-->
+
+<!--DELIMITER-->
+<!--I hope this helps! Let me know if you have any further questions..-->
+<!--DELIMITER-->
+<!--DELIMITER-->
+<!--This code includes proper commenting to explain the purpose of each section. The comments are concise and clear, making it easier for you to understand the code..-->
+<!--DELIMITER-->
