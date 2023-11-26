@@ -123,14 +123,19 @@ a {
 }
 
 .form-group button {
-  font-family: "Marhey", sans-serif;
-  font-size: 20px;
+  font-family: inherit;
+  font-size: 25px;
   margin-top: 25px;
   margin-left: 65%;
   width: 35%;
   border: 2px solid #333;
   border-radius: 5px;
   text-align: center;
+}
+
+.form-group button:hover {
+  scale: 1.1;
+  cursor: pointer;
 }
 
 .Games {
@@ -168,6 +173,7 @@ a {
 }
 
 #GamesUser button {
+  font-family: inherit;
   font-size: 25px;
   background-color: red;
   color: whitesmoke;
@@ -188,6 +194,7 @@ a {
 }
 
 #nuke-button {
+  font-family: inherit;
   font-size: 25px;
   background-color: red;
   color: whitesmoke;
