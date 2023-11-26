@@ -190,5 +190,21 @@ button:hover {
   top: 25%;
   left: 10%;
 }
+
+.peu {
+  display: grid;
+  column-count: auto;
+  height: 15vh;
+  background-color: #333;
+  margin: 0;
+}
+
+.peu div {
+  margin: auto;
+  text-align: center;
+  font-size: larger;
+  color: white;
+}
+
 /*DELIMITER*/
 /*DELIMITER This code has been updated with proper commenting to provide clarity and conciseness. Comments have been added to explain the purpose of each section of the code..</s>*/

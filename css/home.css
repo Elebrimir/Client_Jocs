@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Marhey&display=swap");
+
+body {
+  background-color: whitesmoke;
+  padding: 0;
+  margin: 0;
+  font-family: "Marhey", sans-serif;
+  font-size: 16px;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  margin: 0;
+  padding: 10vh;
+  text-align: center;
+}
+
+nav {
+  background-color: slategray;
+  display: flex;
+  justify-content: center;
+  padding: 1%;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+li {
+  background-color: whitesmoke;
+  margin-right: 10px;
+  height: 10vh;
+  width: 15vh;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #333;
+  box-shadow: 5px 5px 5px #333;
+}
+
+li:hover {
+  scale: 1.1;
+}
+
+a {
+  padding: 15%;
+}
+
+.menu {
+  margin: 0;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Contenedor_Principal {
+  background-color: slategray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.juegos {
+  display: flex;
+}
+
+.juegos a {
+  background-color: #333;
+  border: 5px solid whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 50px;
+  padding: 50px;
+  border-radius: 15px;
+  text-decoration: none;
+  color: antiquewhite;
+  font-size: 3rem;
+  box-shadow: 10px 10px 5px #333;
+}
+
+.juegos a:hover {
+  scale: 1.05;
+}
+
+.juegos a img {
+  width: 80%;
+  height: auto;
+}
+
+.peu {
+  display: grid;
+  column-count: auto;
+  height: 15vh;
+  background-color: #333;
+  margin: 0;
+}
+
+.peu div {
+  margin: auto;
+  text-align: center;
+  font-size: larger;
+  color: white;
+}
