@@ -99,7 +99,7 @@ function finalPartida() {
         rival: Jugador[1].nom,
       };
       info2Partida = {
-        id: Partida.id,
+        id: generarTokenCutre(),
         jugador: Jugador[1].nom,
         puntuacio: Jugador[1].jocs,
         joc: "Tic-Tac-Toe",
