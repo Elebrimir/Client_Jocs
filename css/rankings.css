@@ -112,8 +112,8 @@ a {
   background-color: whitesmoke;
   margin: auto;
   margin-right: 0;
-  margin-top: 10px;
-  padding: 10px;
+  margin-top: 5px;
+  padding:0 5px 0 5px;
   height: auto;
   border-radius: 5px;
   display: flex;
@@ -136,4 +136,11 @@ a {
   text-align: center;
   font-size: larger;
   color: white;
+}
+
+.avatar_rank{
+  width: 36px;
+  height: 44px;
+  margin: auto;
+  padding: 0 4px 0 4px;
 }
