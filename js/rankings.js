@@ -45,9 +45,13 @@ fetch("https://pablo-data-games.glitch.me/games", {
           console.log(element[i]);
           rankPlayers.innerHTML += `<div class="listGames"><li class="ranking" id="${
             element[i].id
-          }">Partida ${[i + 1]} -&nbsp<em>Jugador: ${
+          }"><span style="color:red;">${[i + 1]}</span>&nbsp/&nbsp<em>Jugador: ${
             element[i].jugador
-          }</em>&nbsp - ${element[i].puntuacio} Punts - Joc: ${element[i].joc}`;
+          }</em>&nbsp / ${element[i].puntuacio} Punts ${
+            element[i].rival ? `/ Oponent: ${element[i].rival}` : ""
+          } ${
+            element[i].resultat ? `/ Resultat: ${element[i].resultat}` : ""
+          }/ Joc: ${element[i].joc}`;
         }
       }
     }
@@ -69,9 +73,18 @@ fetch("https://pablo-data-games.glitch.me/games", {
           console.log(element[i]);
           rankGames.innerHTML += `<div class="listGames"><li class="ranking" id="${
             element[i].id
-          }">Partida ${[i + 1]} -&nbsp<em>Jugador: ${
+          }"><span style="color:red;">${[i + 1]}</span>&nbsp/&nbsp<img class="avatar_rank"
+          src="https://api.dicebear.com/7.x/bottts/svg?seed=${
             element[i].jugador
-          }</em>&nbsp - ${element[i].puntuacio} Punts - Joc: ${element[i].joc}`;
+          }"
+          alt="avatar"
+         /><em>Jugador: ${element[i].jugador}</em>&nbsp/ ${
+            element[i].puntuacio
+          } Punts  ${
+            element[i].rival ? `/ Oponent: ${element[i].rival}` : ""
+          } ${
+            element[i].resultat ? `/ Resultat: ${element[i].resultat}` : ""
+          }/ Joc: ${element[i].joc}`;
         }
       }
     }
